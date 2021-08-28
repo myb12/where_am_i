@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +12,7 @@ html {
 }
 
 body {
-  font-family: system-ui;
+  font-family: 'Oxygen', sans-serif;
   color: #555;
   background-color: #f7f7f7;
   min-height: 100vh;
@@ -18,6 +20,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-image: url('../images/main-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -27,9 +33,8 @@ body {
 }
 
 .countries {
-  /* margin-bottom: 8rem; */
+  margin-bottom: 3rem;
   display: flex;
-
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
@@ -99,6 +104,7 @@ body {
 }
 
 .btn-country {
+  margin-bottom: 5rem;
   border: none;
   font-size: 2rem;
   padding: 2rem 5rem;
@@ -106,6 +112,12 @@ body {
   color: white;
   background-color: orangered;
   cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s linear;
+}
+.btn-country:hover {
+  color: orangered;
+  background-color: rgba(0, 0, 0, 0.151);
 }
 
 .images {
@@ -123,4 +135,21 @@ body {
   margin: 2rem;
   border: 3rem solid white;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.151);
+}
+footer a {
+  text-decoration: none;
+  color: orangered;
+  font-weight: 700;
 }

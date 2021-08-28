@@ -3,13 +3,14 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
-const renderCountry = function (data, className = '') {
+const renderCountry = function (data, city, className = '') {
+  countriesContainer.innerHTML = null;
   const html = `
             <article class="country ${className}">
               <img class="country__img" src="${data.flag}" />
               <div class="country__data">
                 <h3 class="country__name">${data.name}</h3>
-                <h4 class="country__region">${data.region}</h4>
+                <h4 class="country__region">${city}</h4>
                 <p class="country__row"><span>👫</span>${(
                   +data.population / 1000000
                 ).toFixed(1)}M People</p>
@@ -33,9 +34,10 @@ const getPosition = function () {
 };
 
 const whereAmI = function () {
+  let city;
   getPosition()
     .then(pos => {
-      console.log(pos);
+      // console.log(pos);
       const { latitude: lat, longitude: lng } = pos.coords;
       return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
     })
@@ -47,8 +49,8 @@ const whereAmI = function () {
       return response.json();
     })
     .then(data => {
-      console.log(`You are in ${data.city}, ${data.country}`);
-
+      city = data.city;
+      // console.log(`You are in ${city}, ${data.country}`);
       return fetch(`https://restcountries.eu/rest/v2/name/${data.country}`);
     })
     .then(response => {
@@ -58,7 +60,8 @@ const whereAmI = function () {
       return response.json();
     })
     .then(data => {
-      renderCountry(data[0]);
+      // console.log(data[0]);
+      renderCountry(data[0], city);
     })
     .catch(err => console.error(`${err.message} 💥💥💥💥💥`));
 };
