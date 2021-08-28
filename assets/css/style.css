@@ -138,6 +138,7 @@ body {
 }
 
 footer {
+  padding: 0 1rem;
   color: #fff;
   display: flex;
   align-items: center;
