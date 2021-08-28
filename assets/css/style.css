@@ -16,7 +16,7 @@ body {
   color: #555;
   background-color: #f7f7f7;
   min-height: 100vh;
-
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +142,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100vw;
   height: 5rem;
